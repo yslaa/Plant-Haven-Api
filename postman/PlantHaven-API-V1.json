@@ -28,7 +28,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}"
+									"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
 								},
 								"url": "{{URI}}{{V1}}login"
 							},
@@ -545,13 +545,327 @@
 				}
 			],
 			"id": "2b251336-c80d-4fa5-98fc-12357b1bea76"
+		},
+		{
+			"name": "TRANSACTIONS",
+			"item": [
+				{
+					"name": "GET ALL TRANSACTIONS",
+					"id": "cbea2b8a-614b-4091-bd5b-ff88a97e20c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}transactions"
+					},
+					"response": []
+				},
+				{
+					"name": "GET SINGLE TRANSACTION",
+					"id": "b1ea2f1f-eee5-495d-b174-c759c9531e29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}transaction/652d5904e07cf14991913059"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TRANSACTION",
+					"id": "29e616a5-d723-4e9c-b356-f59143a7bfc6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"652d58b9e07cf1499191304a\",\r\n  \"product\": [\"652d58f9e07cf14991913056\"],\r\n  \"status\": \"pending\",\r\n  \"date\": \"2023-12-11\"\r\n}\r\n"
+						},
+						"url": "{{URI}}{{V1}}transactions"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TRANSACTION",
+					"id": "4d3e54b2-3569-4f08-a88b-dd949517ebca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"652d433a858a476eaa91e21d\",\r\n  \"product\": [\"652d4d2c1b84e5d507cefd3d\"],\r\n  \"status\": \"pending\",\r\n  \"date\": \"2023-12-12\"\r\n}\r\n"
+						},
+						"url": "{{URI}}{{V1}}transaction/edit/652d59ae9da8a7cca6b460e3"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TRANSACTION",
+					"id": "aa0d1f6b-c04c-47a5-a812-c8a9a0a554dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}transaction/652d5be7e4a8a734d46aa4da"
+					},
+					"response": []
+				}
+			],
+			"id": "40a9e2c9-52ac-43eb-aad0-e1c839961b5a"
+		},
+		{
+			"name": "COMMENTS",
+			"item": [
+				{
+					"name": "GET ALL COMMENTS",
+					"id": "138e1d83-78c0-4ac9-ab79-9bd2be2bd004",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}comments"
+					},
+					"response": []
+				},
+				{
+					"name": "GET SINGLE COMMENT",
+					"id": "7ad2584c-aacf-46dd-827c-479b23d41ebf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}comment/652d433a858a476eaa91e21d"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE COMMENTS",
+					"id": "de0a63f0-df5a-456f-9173-e7241ca430c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ratings",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Life Changer",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/C:/Users/HP/Downloads/393190183_867134204632263_6832750664692627771_n.png"
+								},
+								{
+									"key": "transaction",
+									"value": "652d655f872a8fbf82e1090e",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{URI}}{{V1}}comments"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE COMMENT",
+					"id": "780f088d-ca43-4f12-8273-675aab219c7b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ratings",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Life Changer",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/C:/Users/HP/Downloads/393190183_867134204632263_6832750664692627771_n.png"
+								},
+								{
+									"key": "transaction",
+									"value": "652d655f872a8fbf82e1090e",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{URI}}{{V1}}comment/edit/652d65a5a5c8b52a1afb8a1b"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE COMMENT",
+					"id": "33a38d83-bb93-4f88-b39e-a78db605968c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}product/652d65a5a5c8b52a1afb8a1b"
+					},
+					"response": []
+				}
+			],
+			"id": "9e2de56b-46de-4916-a74e-36172d3c8dfc"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b8532318-c26a-4f0b-ac0c-88fff4411a63",
+				"id": "f7a4e753-adb7-4e8f-b722-837c0cc45562",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -561,7 +875,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ed1b0a3f-cfc1-4eb7-8fa7-241b3d874e39",
+				"id": "cece909b-28de-4ad0-8a75-8a415d80ce43",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -572,7 +886,7 @@
 	"variable": [
 		{
 			"key": "Bearer",
-			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE2OTc0NjU2NjEsImV4cCI6MTY5ODA3MDQ2MX0.lQPww9qL85B82RMG1fjBDcIX93NujNpssTvxInViOSA",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE2OTc0NzA2NjEsImV4cCI6MTY5ODA3NTQ2MX0._cAIHQpxyBawktCinTgFyKZQ2YlxAzTXcGnvT3nVDhg",
 			"type": "string"
 		}
 	]
