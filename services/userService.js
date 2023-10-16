@@ -1,5 +1,6 @@
 const User = require("../models/user");
-const Products = require("../models/products");
+const Products = require("../models/product");
+const Transactions = require("../models/transaction")
 const mongoose = require("mongoose");
 const ErrorHandler = require("../utils/errorHandler");
 const bcrypt = require("bcrypt");
@@ -387,15 +388,16 @@ exports.deleteUserData = async (id) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     throw new ErrorHandler(`Invalid user ID: ${id}`);
 
-  const user = await User.findOne({ _id: id });
-  if (!user) throw new ErrorHandler(`User not found with ID: ${id}`);
+    const user = await User.findOne({ _id: id });
+    if (!user) throw new ErrorHandler(`User not found with ID: ${id}`);
 
-  const publicIds = user.image.map((image) => image.public_id);
+    const publicIds = user.image.map((image) => image.public_id);
 
   await Promise.all([
     User.deleteOne({ _id: id }).lean().exec(),
     cloudinary.api.delete_resources(publicIds),
     Products.deleteMany({ user: id }).lean().exec(),
+    Transactions.deleteMany({ user: id }).lean().exec(),
   ]);
 
   return user;
