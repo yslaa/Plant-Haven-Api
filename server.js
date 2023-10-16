@@ -8,8 +8,9 @@ const corsOptions = require("./config/corsOptions");
 const mongoose = require("mongoose");
 const { logger, logEvents } = require("./middleware/logger");
 const { errorJson, errorHandler } = require("./middleware/errorJson");
-const users = require("./routes/user");
 const auth = require("./routes/auth");
+const users = require("./routes/user");
+const products = require("./routes/product");
 const { STATUSCODE } = require("./constants/index");
 const connectDB = require("./config/db");
 const PORT = process.env.PORT || 4000;
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/", require("./routes/root"));
 
-app.use("/api/v1", auth, users);
+app.use("/api/v1", auth, users, products);
 
 app.all("*", (req, res) => {
   const filePath = req.accepts("html")
