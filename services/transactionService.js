@@ -1,5 +1,4 @@
 const Transaction = require("../models/transaction");
-const Comment = require("../models/comment");
 const ErrorHandler = require("../utils/errorHandler");
 const mongoose = require("mongoose");
 const {
@@ -113,7 +112,6 @@ exports.deleteTransactionData = async (id) => {
     Transaction.deleteOne({
       _id: id
     }).lean().exec(),
-    Comment.deleteMany({ transaction: id }).lean().exec(),
   ]);
 
   return transaction;

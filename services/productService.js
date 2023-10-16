@@ -1,5 +1,6 @@
 const Product = require("../models/product");
 const Transactions = require("../models/transaction");
+const Deliverys = require("../models/delivery");
 const mongoose = require("mongoose");
 const ErrorHandler = require("../utils/errorHandler");
 const { cloudinary } = require("../utils/cloudinary");
@@ -136,6 +137,7 @@ exports.deleteProductData = async (id) => {
     Product.deleteOne({ _id: id }).lean().exec(),
     cloudinary.api.delete_resources(publicIds),
     Transactions.deleteMany({ product: id }).lean().exec(),
+    Deliverys.deleteMany({ product: id }).lean().exec(),
   ]);
 
   return product;
