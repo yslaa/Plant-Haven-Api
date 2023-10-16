@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Products = require("../models/products");
 const mongoose = require("mongoose");
 const ErrorHandler = require("../utils/errorHandler");
 const bcrypt = require("bcrypt");
@@ -253,7 +254,7 @@ exports.getBlacklistedTokens = () => {
 };
 
 exports.getAllUsersData = async () => {
-  const users = await User.find().sort({ createdAt: -1 }).lean().exec();
+  const users = await User.find().sort({ createdAt: STATUSCODE.NEGATIVE_ONE }).lean().exec();
 
   return users;
 };
@@ -394,6 +395,7 @@ exports.deleteUserData = async (id) => {
   await Promise.all([
     User.deleteOne({ _id: id }).lean().exec(),
     cloudinary.api.delete_resources(publicIds),
+    Products.deleteMany({ user: id }).lean().exec(),
   ]);
 
   return user;

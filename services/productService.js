@@ -5,7 +5,7 @@ const { cloudinary } = require("../utils/cloudinary");
 const { STATUSCODE } = require("../constants/index");
 
 exports.getAllProductData = async () => {
-  const products = await Product.find().sort({ createdAt: -1 }).lean().exec();
+  const products = await Product.find().sort({ createdAt: STATUSCODE.NEGATIVE_ONE }).lean().exec();
 
   return products;
 };
