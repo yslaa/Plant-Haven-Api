@@ -1,5 +1,6 @@
 module.exports = {
   USER: "User",
+  PRODUCT: "Product",
   IMAGES: "Images",
   IMAGE: "image",
   PRODUCTION: "production",
