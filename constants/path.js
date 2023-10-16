@@ -8,4 +8,7 @@ module.exports = {
   RESET_PASSWORD: "/password/reset/:id",
   FORGOT_PASSWORD: "/forgotPassword",
   UPDATE_PASSWORD: "/updatePassword/:id",
+  PRODUCTS: "/products",
+  PRODUCT_ID: "/product/:id",
+  EDIT_PRODUCT_ID: "/product/edit/:id",
 };
