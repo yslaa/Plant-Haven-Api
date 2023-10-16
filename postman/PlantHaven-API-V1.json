@@ -81,6 +81,87 @@
 						"url": "{{URI}}{{V1}}users"
 					},
 					"response": []
+				},
+				{
+					"name": "GET SINGLE USER",
+					"id": "2c066e9a-dec4-4b1b-b234-3be1640212d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}user/6450ed27193678cee513a206"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"id": "9119a340-24d3-4b4f-a4c8-0af452fbb6cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "roles",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/HP/Downloads/image.png",
+										"/C:/Users/HP/Downloads/abitrum-genesis.jpg"
+									]
+								}
+							]
+						},
+						"url": "{{URI}}{{V1}}users"
+					},
+					"response": []
 				}
 			],
 			"id": "7dabc200-39ac-4472-8597-5a0ed03704f8"
