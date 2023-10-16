@@ -11,4 +11,7 @@ module.exports = {
   PRODUCTS: "/products",
   PRODUCT_ID: "/product/:id",
   EDIT_PRODUCT_ID: "/product/edit/:id",
+  TRANSACTIONS: "/transactions",
+  TRANSACTION_ID: "/transaction/:id",
+  EDIT_TRANSACTION_ID: "/transaction/edit/:id",
 };
