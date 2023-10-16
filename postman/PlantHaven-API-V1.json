@@ -933,46 +933,15 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "company_name",
-									"value": "House",
-									"type": "text"
-								},
-								{
-									"key": "date",
-									"value": "2023/11/12",
-									"type": "text"
-								},
-								{
-									"key": "price\n",
-									"value": "1000",
-									"type": "text"
-								},
-								{
-									"key": "status\n",
-									"value": "completed",
-									"type": "text"
-								},
-								{
-									"key": "quantity\n",
-									"value": "999",
-									"type": "text"
-								},
-								{
-									"key": "product",
-									"value": "652d655f872a8fbf82e1090e",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n  \"company_name\": \"Salon Company\",\r\n  \"date\": \"2023-10-20\",\r\n  \"price\": 100.00,\r\n  \"status\": \"Pending\",\r\n  \"quantity\": 69,\r\n  \"product\": \"652d655f872a8fbf82e1090e\"\r\n}"
 						},
 						"url": "{{URI}}{{V1}}deliverys"
 					},
 					"response": []
 				},
 				{
-					"name": "UPDATE COMMENT",
+					"name": "UPDATE DELIVERY",
 					"id": "62f533cc-d244-454a-8c11-87c19bc57e89",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -993,32 +962,10 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "ratings",
-									"value": "3",
-									"type": "text"
-								},
-								{
-									"key": "text",
-									"value": "Life Changer",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
-									"src": "/C:/Users/HP/Downloads/393190183_867134204632263_6832750664692627771_n.png"
-								},
-								{
-									"key": "transaction",
-									"value": "652d655f872a8fbf82e1090e",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n  \"company_name\": \"Salon Company\",\r\n  \"date\": \"2023-10-20\",\r\n  \"price\": 100.00,\r\n  \"status\": \"Completed\",\r\n  \"quantity\": 69,\r\n  \"product\": \"652d655f872a8fbf82e1090e\"\r\n}"
 						},
-						"url": "{{URI}}{{V1}}comment/edit/652d65a5a5c8b52a1afb8a1b"
+						"url": "{{URI}}{{V1}}delivery/edit/652d65a5a5c8b52a1afb8a1b"
 					},
 					"response": []
 				},
