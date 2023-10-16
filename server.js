@@ -11,7 +11,8 @@ const { errorJson, errorHandler } = require("./middleware/errorJson");
 const auth = require("./routes/auth");
 const users = require("./routes/user");
 const products = require("./routes/product");
-const transaction = require("./routes/transaction");
+const transactions = require("./routes/transaction");
+const comments = require("./routes/comment");
 const { STATUSCODE } = require("./constants/index");
 const connectDB = require("./config/db");
 const PORT = process.env.PORT || 4000;
@@ -25,7 +26,7 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/", require("./routes/root"));
 
-app.use("/api/v1", auth, users, products, transaction);
+app.use("/api/v1", auth, users, products, transactions, comments);
 
 app.all("*", (req, res) => {
   const filePath = req.accepts("html")
