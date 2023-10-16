@@ -1,0 +1,20 @@
+{
+	"info": {
+		"_postman_id": "445897fa-b372-4866-b729-6889e9ce430c",
+		"name": "PLANT-HAVEN-2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "AUTH",
+					"item": [],
+					"id": "a5909161-beb0-4356-b599-8d90353197ff"
+				}
+			],
+			"id": "7dabc200-39ac-4472-8597-5a0ed03704f8"
+		}
+	]
+}
