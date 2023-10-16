@@ -102,7 +102,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{URI}}{{V1}}user/6450ed27193678cee513a206"
+						"url": "{{URI}}{{V1}}user/652d40e0858a476eaa91e209"
 					},
 					"response": []
 				},
@@ -160,6 +160,59 @@
 							]
 						},
 						"url": "{{URI}}{{V1}}users"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"id": "54849ba4-2b47-4b76-9130-d25cae9318bf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "roles",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": [
+										"/C:/Users/HP/Downloads/image.png",
+										"/C:/Users/HP/Downloads/abitrum-genesis.jpg"
+									]
+								}
+							]
+						},
+						"url": "{{URI}}{{V1}}user/edit/652d40e0858a476eaa91e209"
 					},
 					"response": []
 				}
