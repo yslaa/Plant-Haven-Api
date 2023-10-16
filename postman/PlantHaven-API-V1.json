@@ -57,9 +57,62 @@
 						}
 					],
 					"id": "a5909161-beb0-4356-b599-8d90353197ff"
+				},
+				{
+					"name": "GET ALL USERS",
+					"id": "323920c3-7f47-482e-a6db-6cacf18e6df3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Bearer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{URI}}{{V1}}users"
+					},
+					"response": []
 				}
 			],
 			"id": "7dabc200-39ac-4472-8597-5a0ed03704f8"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dac52f0c-f2cd-4438-9e58-35d2d1f2986f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "83d0b2d9-bc45-44e0-8cc6-e00c841e8a05",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Bearer",
+			"value": "Bearer ",
+			"type": "string"
 		}
 	]
 }
