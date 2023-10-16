@@ -1,6 +1,7 @@
 module.exports = {
-  USER: "User",
-  PRODUCT: "Product",
+  USER: "user",
+  PRODUCT: "product",
+  TRANSACTION: "transaction",
   IMAGES: "Images",
   IMAGE: "image",
   PRODUCTION: "production",
