@@ -961,11 +961,6 @@
 									"type": "text"
 								},
 								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/HP/Downloads/cloud pink 2.png"
-								},
-								{
 									"key": "product",
 									"value": "652d655f872a8fbf82e1090e",
 									"type": "text"
