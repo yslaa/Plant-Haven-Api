@@ -44,7 +44,7 @@ exports.sendResetPassword = async (
   confirmPassword,
   req
 ) => {
-  const loginUrl = `http://localhost:4000/login`;
+  const loginUrl = `http://localhost:4000/api/v1/login`;
 
   const email = req.query && req.query.email;
   if (!email) throw new ErrorHandler("Please provide an email");
@@ -137,7 +137,7 @@ exports.sendPasswordResetEmail = async (req, email) => {
   if (!email) throw new ErrorHandler("Please provide an email");
 
   const resetToken = uuid.v4();
-  const resetUrl = `http://localhost:4000/password/reset/${resetToken}?email=${encodeURIComponent(
+  const resetUrl = `http://localhost:4000/api/v1/password/reset/${resetToken}?email=${encodeURIComponent(
     email
   )}`;
 
