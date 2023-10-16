@@ -14,4 +14,7 @@ module.exports = {
   TRANSACTIONS: "/transactions",
   TRANSACTION_ID: "/transaction/:id",
   EDIT_TRANSACTION_ID: "/transaction/edit/:id",
+  COMMENTS: "/comments",
+  COMMENT_ID: "/comment/:id",
+  EDIT_COMMENT_ID: "/comment/edit/:id",
 };
