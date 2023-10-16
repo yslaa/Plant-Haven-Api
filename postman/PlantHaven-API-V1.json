@@ -10,7 +10,52 @@
 			"item": [
 				{
 					"name": "AUTH",
-					"item": [],
+					"item": [
+						{
+							"name": "LOGIN",
+							"id": "d7cd3936-b842-41e1-b889-5c3997358f4a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGOUT",
+							"id": "b602fef8-5f4b-4ef8-850b-4ae2c250b138",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+								}
+							},
+							"response": []
+						}
+					],
 					"id": "a5909161-beb0-4356-b599-8d90353197ff"
 				}
 			],
