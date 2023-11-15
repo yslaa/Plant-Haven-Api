@@ -433,7 +433,7 @@
 								},
 								{
 									"key": "class",
-									"value": "Carnivorous",
+									"value": "Betlog",
 									"type": "text"
 								},
 								{
@@ -445,11 +445,11 @@
 									"key": "image",
 									"type": "file",
 									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
-									"src": "/C:/Users/HP/Downloads/IMG_0134.JPG"
+									"src": "/C:/Users/HP/Downloads/f79641bf-03ee-4559-836a-aff3c7b83cbf.jpg"
 								},
 								{
 									"key": "user",
-									"value": "652d433a858a476eaa91e21d",
+									"value": "6550cb424292a260bc8638ba",
 									"type": "text"
 								}
 							]
@@ -907,7 +907,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{URI}}{{V1}}delivery/652d433a858a476eaa91e21d"
+						"url": "{{URI}}{{V1}}delivery/652d6eeaaa25db5a7169e003"
 					},
 					"response": []
 				},
@@ -934,7 +934,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"company_name\": \"Salon Company\",\r\n  \"date\": \"2023-10-20\",\r\n  \"price\": 100.00,\r\n  \"status\": \"Pending\",\r\n  \"quantity\": 69,\r\n  \"product\": \"652d655f872a8fbf82e1090e\"\r\n}"
+							"raw": "{\r\n  \"company_name\": \"Salon Company\",\r\n  \"date\": \"2023-10-20\",\r\n  \"price\": 100.00,\r\n  \"status\": \"Pending\",\r\n  \"quantity\": 69,\r\n  \"product\": \"652d58f9e07cf14991913056\"\r\n}"
 						},
 						"url": "{{URI}}{{V1}}deliverys"
 					},
@@ -965,12 +965,12 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"company_name\": \"Salon Company\",\r\n  \"date\": \"2023-10-20\",\r\n  \"price\": 100.00,\r\n  \"status\": \"Completed\",\r\n  \"quantity\": 69,\r\n  \"product\": \"652d655f872a8fbf82e1090e\"\r\n}"
 						},
-						"url": "{{URI}}{{V1}}delivery/edit/652d65a5a5c8b52a1afb8a1b"
+						"url": "{{URI}}{{V1}}delivery/edit/652d6eeaaa25db5a7169e003"
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE COMMENT",
+					"name": "DELETE DELIVERY",
 					"id": "bf66913c-614f-4556-ba20-e42ad5309945",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -989,7 +989,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{URI}}{{V1}}product/652d65a5a5c8b52a1afb8a1b"
+						"url": "{{URI}}{{V1}}delivery/652d6f4ca927251d46f87c9e"
 					},
 					"response": []
 				}
@@ -1001,7 +1001,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f7a4e753-adb7-4e8f-b722-837c0cc45562",
+				"id": "2029b67c-8561-458f-acfc-ecfd89032947",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1011,7 +1011,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cece909b-28de-4ad0-8a75-8a415d80ce43",
+				"id": "6fefd787-639b-4fdf-937e-89aac765e330",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1022,7 +1022,7 @@
 	"variable": [
 		{
 			"key": "Bearer",
-			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE2OTc0NzA2NjEsImV4cCI6MTY5ODA3NTQ2MX0._cAIHQpxyBawktCinTgFyKZQ2YlxAzTXcGnvT3nVDhg",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE2OTk3MTAzODgsImV4cCI6MTcwMDMxNTE4OH0.ZQ2i-YIZUma8eaZgnrPVnfKqpUGuj1J9vKmslCsL5uc",
 			"type": "string"
 		}
 	]
