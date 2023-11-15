@@ -46,7 +46,13 @@ exports.sendResetPassword = async (
   confirmPassword,
   req
 ) => {
-  const loginUrl = `http://localhost:6969/login`;
+  let loginUrl;
+
+  if (navigator.onLine) {
+    loginUrl = `https://plant-haven-api.onrender.com/login`;
+  } else {
+    loginUrl = `http://localhost:6969/login`;
+  }
 
   const email = req.query && req.query.email;
   if (!email) throw new ErrorHandler("Please provide an email");
@@ -139,9 +145,13 @@ exports.sendPasswordResetEmail = async (req, email) => {
   if (!email) throw new ErrorHandler("Please provide an email");
 
   const resetToken = uuid.v4();
-  const resetUrl = `http://localhost:6969/resetPassword/${resetToken}?email=${encodeURIComponent(
-    email
-  )}`;
+  let resetUrl;
+
+  if (navigator.onLine) {
+    resetUrl = `https://plant-haven-api.onrender.com/resetPassword/${resetToken}?email=${encodeURIComponent(email)}`;
+  } else {
+    resetUrl = `http://localhost:6969/resetPassword/${resetToken}?email=${encodeURIComponent(email)}`;
+  }
 
   const user = await User.findOne({ email });
 
