@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const { RESOURCE } = require("../constants/index");
+const {
+  RESOURCE
+} = require("../constants/index");
 
 const productSchema = new mongoose.Schema({
   user: {
@@ -18,30 +20,31 @@ const productSchema = new mongoose.Schema({
   },
   class: {
     type: String,
-    required: [true, "Please enter a class of your product"],
+      required: [true, "Please enter a class of your product"],
   },
-  variant:
-    {
+  variant: {
+    type: String,
+    enum: ["Local", "International"],
+    default: "Local",
+  },
+  price: {
+    type: Number,
+    required: [true, "Please enter a price"],
+  },
+  image: [{
+    public_id: {
       type: String,
-      enum: ["Local", "International"],
-      default: "Local",
+      required: true,
     },
-  image: [
-    {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
-      },
-      originalname: {
-        type: String,
-        required: true,
-      },
+    url: {
+      type: String,
+      required: true,
     },
-  ],
+    originalname: {
+      type: String,
+      required: true,
+    },
+  }, ],
 });
 
 module.exports = mongoose.model(RESOURCE.PRODUCT, productSchema);

@@ -10,7 +10,7 @@ const transactionRoutes = [
   {
     method: METHOD.GET,
     path: PATH.TRANSACTIONS,
-    roles: [ROLE.ADMIN, ROLE.EMPLOYEE],
+    roles: [ROLE.ADMIN, ROLE.EMPLOYEE, ROLE.CUSTOMER],
     handler: transactionController.getAllTransactions,
   },
   {

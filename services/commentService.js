@@ -52,10 +52,6 @@ exports.CreateCommentData = async (req, res) => {
     );
   }
 
-  if (images.length === 0) {
-    throw new ErrorHandler("At least one image is required");
-  }
-
   const commentData = {
     ...req.body,
     image: images,
@@ -124,12 +120,9 @@ exports.deleteCommentData = async (id) => {
 
   const publicIds = comment.image.map((image) => image.public_id);
 
-  await Promise.all([
-    Comment.deleteOne({
-      _id: id
-    }).lean().exec(),
-    cloudinary.api.delete_resources(publicIds),
-  ]);
+  if (publicIds.length > 0) await cloudinary.api.delete_resources(publicIds);
+
+  await Comment.deleteOne({ _id: id }).lean().exec();
 
   return comment;
 };

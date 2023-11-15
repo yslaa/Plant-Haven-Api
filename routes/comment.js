@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const commentController = require("../controllers/commentController");
-const { verifyJWT, authorizeRoles } = require("../middleware/verifyJWT");
-const { METHOD, PATH, ROLE } = require("../constants/index");
+const {
+  verifyJWT,
+  authorizeRoles
+} = require("../middleware/verifyJWT");
+const {
+  METHOD,
+  PATH,
+  ROLE
+} = require("../constants/index");
 
 router.use(verifyJWT);
 
-const commentRoutes = [
-  {
+const commentRoutes = [{
     method: METHOD.GET,
     path: PATH.COMMENTS,
     roles: [ROLE.ADMIN, ROLE.EMPLOYEE, ROLE.CUSTOMER],
@@ -16,7 +22,7 @@ const commentRoutes = [
   {
     method: METHOD.POST,
     path: PATH.COMMENTS,
-    roles: [ROLE.ADMIN ,ROLE.CUSTOMER],
+    roles: [ROLE.CUSTOMER],
     handler: commentController.createNewComment,
   },
   {
@@ -28,7 +34,7 @@ const commentRoutes = [
   {
     method: METHOD.PATCH,
     path: PATH.EDIT_COMMENT_ID,
-    roles: [ROLE.ADMIN, ROLE.CUSTOMER],
+    roles: [ROLE.CUSTOMER],
     handler: commentController.updateComment,
   },
   {
@@ -40,7 +46,12 @@ const commentRoutes = [
 ];
 
 commentRoutes.forEach((route) => {
-  const { method, path, roles, handler } = route;
+  const {
+    method,
+    path,
+    roles,
+    handler
+  } = route;
   router[method](path, authorizeRoles(...roles), handler);
 });
 

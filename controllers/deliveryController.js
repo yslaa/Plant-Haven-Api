@@ -32,9 +32,9 @@ exports.getSingleDelivery = asyncHandler(async (req, res, next) => {
         delivery
       );
 });
- 
+
 exports.createNewDelivery = [
-  checkRequiredFields(["company_name", "date", "price", "status", "quantity"]),
+  checkRequiredFields(["company_name", "date", "price", "quantity"]),
   asyncHandler(async (req, res, next) => {
     const delivery = await deliverysService.createDeliveryData(req);
 
@@ -47,7 +47,7 @@ exports.createNewDelivery = [
 ];
 
 exports.updateDelivery = [
-    checkRequiredFields(["company_name", "date", "price", "status", "quantity"]),
+    checkRequiredFields(["company_name", "date", "price", "quantity"]),
   asyncHandler(async (req, res, next) => {
     const delivery = await deliverysService.updateDeliveryData(
       req,

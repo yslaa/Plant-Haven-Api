@@ -3,12 +3,16 @@ const Products = require("../models/product");
 const mongoose = require("mongoose");
 const ErrorHandler = require("../utils/errorHandler");
 const {
-    STATUSCODE
+    STATUSCODE,
+    RESOURCE
 } = require("../constants/index");
 
 exports.getAllDeliveryData = async () => {
     const deliverys = await Delivery.find().sort({
         createdAt: STATUSCODE.NEGATIVE_ONE
+    }).populate({
+        path: RESOURCE.PRODUCT,
+        select: "product_name"
     }).lean().exec();
 
     return deliverys;
@@ -19,7 +23,10 @@ exports.getSingleDeliveryData = async (id) => {
         throw new ErrorHandler(`Invalid delivery ID: ${id}`);
     }
 
-    const delivery = await Delivery.findById(id).lean().exec();
+    const delivery = await Delivery.findById(id).populate({
+        path: RESOURCE.PRODUCT,
+        select: "product_name"
+    }).lean().exec();
 
     if (!delivery) {
         throw new ErrorHandler(`Delivery not found with ID: ${id}`);
@@ -42,8 +49,14 @@ exports.createDeliveryData = async (req, res) => {
         throw new ErrorHandler("Duplicate company name");
     }
 
-    const delivery = await Delivery.create({
-        ...req.body,
+
+    const delivery = await Delivery.create(
+        req.body,
+    );
+
+    await Delivery.populate(delivery, {
+        path: RESOURCE.PRODUCT,
+        select: "product_name"
     });
 
     return delivery;
@@ -80,6 +93,10 @@ exports.updateDeliveryData = async (req, res, id) => {
                 runValidators: true,
             }
         )
+        .populate({
+            path: RESOURCE.PRODUCT,
+            select: "product_name"
+        })
         .lean()
         .exec();
 
@@ -102,6 +119,9 @@ exports.deleteDeliveryData = async (id) => {
     await Promise.all([
         Delivery.deleteOne({
             _id: id
+        }).lean().exec(),
+        Products.deleteMany({
+            schedule: id
         }).lean().exec(),
     ]);
 

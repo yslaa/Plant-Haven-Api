@@ -50,7 +50,7 @@ exports.createNewComment = [
 
 exports.updateComment = [
   upload.array("image"),
-  checkRequiredFields(["ratings", "text","image","transaction"]),
+  checkRequiredFields(["ratings", "text","image"]),
   asyncHandler(async (req, res, next) => {
     const comment = await commentsService.updateCommentData(
       req,

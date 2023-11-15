@@ -1,13 +1,23 @@
 const Product = require("../models/product");
-const Transactions = require("../models/transaction");
-const Deliverys = require("../models/delivery");
+const Transaction = require("../models/transaction");
+const Delivery = require("../models/delivery");
 const mongoose = require("mongoose");
 const ErrorHandler = require("../utils/errorHandler");
-const { cloudinary } = require("../utils/cloudinary");
-const { STATUSCODE } = require("../constants/index");
+const {
+  cloudinary
+} = require("../utils/cloudinary");
+const {
+  STATUSCODE,
+  RESOURCE
+} = require("../constants/index");
 
 exports.getAllProductData = async () => {
-  const products = await Product.find().sort({ createdAt: STATUSCODE.NEGATIVE_ONE }).lean().exec();
+  const products = await Product.find().sort({
+    createdAt: STATUSCODE.NEGATIVE_ONE
+  }).populate({
+    path: RESOURCE.USER,
+    select: "name"
+  }).lean().exec();
 
   return products;
 };
@@ -17,7 +27,10 @@ exports.getSingleProductData = async (id) => {
     throw new ErrorHandler(`Invalid product ID: ${id}`);
   }
 
-  const product = await Product.findById(id).lean().exec();
+  const product = await Product.findById(id).populate({
+    path: RESOURCE.USER,
+    select: "name"
+  }).lean().exec();
 
   if (!product) {
     throw new ErrorHandler(`Product not found with ID: ${id}`);
@@ -28,9 +41,11 @@ exports.getSingleProductData = async (id) => {
 
 exports.createProductData = async (req, res) => {
   const duplicateProduct = await Product.findOne({
-    product: req.body.product_name,
-  })
-    .collation({ locale: "en" })
+      product: req.body.product_name,
+    })
+    .collation({
+      locale: "en"
+    })
     .lean()
     .exec();
 
@@ -62,6 +77,12 @@ exports.createProductData = async (req, res) => {
     image: image,
   });
 
+  await Product.populate(product, {
+    path: RESOURCE.USER,
+    select: "name"
+  });
+
+
   return product;
 };
 
@@ -75,10 +96,14 @@ exports.updateProductData = async (req, res, id) => {
     throw new ErrorHandler(`Product not found with ID: ${id}`);
 
   const duplicateProduct = await Product.findOne({
-    name: req.body.product_name,
-    _id: { $ne: id },
-  })
-    .collation({ locale: "en" })
+      name: req.body.product_name,
+      _id: {
+        $ne: id
+      },
+    })
+    .collation({
+      locale: "en"
+    })
     .lean()
     .exec();
 
@@ -104,16 +129,18 @@ exports.updateProductData = async (req, res, id) => {
     );
   }
   const updatedProduct = await Product.findByIdAndUpdate(
-    id,
-    {
-      ...req.body,
-      image: image,
-    },
-    {
-      new: true,
-      runValidators: true,
-    }
-  )
+      id, {
+        ...req.body,
+        image: image,
+      }, {
+        new: true,
+        runValidators: true,
+      }
+    )
+    .populate({
+      path: RESOURCE.USER,
+      select: "name"
+    })
     .lean()
     .exec();
 
@@ -128,17 +155,25 @@ exports.deleteProductData = async (id) => {
     throw new ErrorHandler(`Invalid product ID ${id}`);
   }
 
-  const product = await Product.findOne({ _id: id });
+  const product = await Product.findOne({
+    _id: id
+  });
   if (!product) throw new ErrorHandler(`Product not found with ID: ${id}`);
 
   const publicIds = product.image.map((image) => image.public_id);
 
   await Promise.all([
-    Product.deleteOne({ _id: id }).lean().exec(),
+    Product.deleteOne({
+      _id: id
+    }).lean().exec(),
     cloudinary.api.delete_resources(publicIds),
-    Transactions.deleteMany({ product: id }).lean().exec(),
-    Deliverys.deleteMany({ product: id }).lean().exec(),
+    Transaction.deleteMany({
+      product: id
+    }).lean().exec(),
+    Delivery
+    .deleteMany({
+      product: id
+    }).lean().exec(),
   ]);
-
   return product;
 };

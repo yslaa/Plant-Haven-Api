@@ -1,4 +1,5 @@
 const Transaction = require("../models/transaction");
+const Comment = require("../models/comment");
 const ErrorHandler = require("../utils/errorHandler");
 const mongoose = require("mongoose");
 const {
@@ -15,7 +16,7 @@ exports.getAllTransactionData = async () => {
     },
     {
       path: RESOURCE.PRODUCT,
-      select: "product_name",
+      select: "product_name price image",
     },
   ]).lean().exec();
 
@@ -33,7 +34,7 @@ exports.getSingleTransactionData = async (id) => {
       },
       {
         path: RESOURCE.PRODUCT,
-        select: "product_name",
+        select: "product_name price image",
       },
     ])
     .lean()
@@ -67,7 +68,7 @@ exports.createTransactionData = async (data) => {
     },
     {
       path: RESOURCE.PRODUCT,
-      select: "product_name",
+      select: "product_name price image",
     },
   ]);
 
@@ -79,14 +80,14 @@ exports.updateTransactionData = async (req, res, id) => {
     throw new ErrorHandler(`Invalid transaction ID: ${id}`);
   }
 
-  const existingTransaction = await Transaction.findOneAndUpdate(
-    { _id: id },
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  )
+  const existingTransaction = await Transaction.findOneAndUpdate({
+        _id: id
+      },
+      req.body, {
+        new: true,
+        runValidators: true,
+      }
+    )
     .lean()
     .exec();
 
@@ -111,6 +112,9 @@ exports.deleteTransactionData = async (id) => {
   await Promise.all([
     Transaction.deleteOne({
       _id: id
+    }).lean().exec(),
+    Comment.deleteMany({
+      transaction: id
     }).lean().exec(),
   ]);
 

@@ -1,22 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController");
-const { verifyJWT, authorizeRoles } = require("../middleware/verifyJWT");
-const { METHOD, PATH, ROLE } = require("../constants/index");
+const {
+  verifyJWT,
+  authorizeRoles
+} = require("../middleware/verifyJWT");
+const {
+  METHOD,
+  PATH,
+  ROLE
+} = require("../constants/index");
 
 router.use(verifyJWT);
 
-const productRoutes = [
-  {
+const productRoutes = [{
     method: METHOD.GET,
     path: PATH.PRODUCTS,
-    roles: [ROLE.ADMIN, ROLE.EMPLOYEE],
+    roles: [ROLE.ADMIN, ROLE.EMPLOYEE, ROLE.CUSTOMER],
     handler: productController.getAllProducts,
   },
   {
     method: METHOD.POST,
     path: PATH.PRODUCTS,
-    roles: [ROLE.ADMIN],
+    roles: [ROLE.ADMIN, ROLE.EMPLOYEE],
     handler: productController.createNewProduct,
   },
   {
@@ -28,7 +34,7 @@ const productRoutes = [
   {
     method: METHOD.PATCH,
     path: PATH.EDIT_PRODUCT_ID,
-    roles: [ROLE.ADMIN],
+    roles: [ROLE.ADMIN, ROLE.EMPLOYEE],
     handler: productController.updateProduct,
   },
   {
@@ -40,7 +46,12 @@ const productRoutes = [
 ];
 
 productRoutes.forEach((route) => {
-  const { method, path, roles, handler } = route;
+  const {
+    method,
+    path,
+    roles,
+    handler
+  } = route;
   router[method](path, authorizeRoles(...roles), handler);
 });
 
