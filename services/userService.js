@@ -48,11 +48,7 @@ exports.sendResetPassword = async (
 ) => {
   let loginUrl;
 
-  if (navigator.onLine) {
-    loginUrl = `https://plant-haven-api.onrender.com/login`;
-  } else {
-    loginUrl = `http://localhost:6969/login`;
-  }
+  loginUrl = `http://localhost:6969/login`;
 
   const email = req.query && req.query.email;
   if (!email) throw new ErrorHandler("Please provide an email");
@@ -147,11 +143,7 @@ exports.sendPasswordResetEmail = async (req, email) => {
   const resetToken = uuid.v4();
   let resetUrl;
 
-  if (navigator.onLine) {
-    resetUrl = `https://plant-haven-api.onrender.com/resetPassword/${resetToken}?email=${encodeURIComponent(email)}`;
-  } else {
-    resetUrl = `http://localhost:6969/resetPassword/${resetToken}?email=${encodeURIComponent(email)}`;
-  }
+  resetUrl = `http://localhost:6969/resetPassword/${resetToken}?email=${encodeURIComponent(email)}`;
 
   const user = await User.findOne({ email });
 
@@ -269,7 +261,6 @@ exports.getAllUsersData = async () => {
 
   return users;
 };
-
 
 exports.getSingleUserData = async (id) => {
   if (!mongoose.Types.ObjectId.isValid(id))

@@ -119,10 +119,7 @@ exports.deleteDeliveryData = async (id) => {
     await Promise.all([
         Delivery.deleteOne({
             _id: id
-        }).lean().exec(),
-        Products.deleteMany({
-            schedule: id
-        }).lean().exec(),
+        }).lean().exec()
     ]);
 
     return delivery;

@@ -22,7 +22,7 @@ const commentRoutes = [{
   {
     method: METHOD.POST,
     path: PATH.COMMENTS,
-    roles: [ROLE.CUSTOMER],
+    roles: [ROLE.ADMIN, ROLE.CUSTOMER],
     handler: commentController.createNewComment,
   },
   {
@@ -34,7 +34,7 @@ const commentRoutes = [{
   {
     method: METHOD.PATCH,
     path: PATH.EDIT_COMMENT_ID,
-    roles: [ROLE.CUSTOMER],
+    roles: [ROLE.ADMIN, ROLE.CUSTOMER],
     handler: commentController.updateComment,
   },
   {
