@@ -53,7 +53,7 @@
 									"mode": "raw",
 									"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
 								},
-								"url": "{{URI}}{{V1}}/logout"
+								"url": "{{URI}}{{V1}}logout"
 							},
 							"response": []
 						}
@@ -1010,7 +1010,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "499f43ab-4150-4342-b82c-e0dc94ac8156",
+				"id": "3d3fc6ae-600d-4150-90c8-b39bc18980f3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1020,7 +1020,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cc775742-ea3b-49f6-8b00-a822e227429a",
+				"id": "9f41a61b-449a-4f6c-a96c-f7edc3cdcd14",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1031,7 +1031,7 @@
 	"variable": [
 		{
 			"key": "Bearer",
-			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE3MDEyNzYxNjQsImV4cCI6MTcwMTg4MDk2NH0.mWaDgCDHitmNSr5cfgqHvnjzl37lRfmu0pHRHpbZUCs",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFkbWluIl19LCJpYXQiOjE3MDEyOTM5NTYsImV4cCI6MTcwMTg5ODc1Nn0.OVWXc2uFhBxP2UeeR9MlZz92VO-xpID9ljtT-v6q5aA",
 			"type": "string"
 		}
 	]
