@@ -129,12 +129,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "adminz",
+									"value": "admin",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "adminz@gmail.com",
+									"value": "admin@gmail.com",
 									"type": "text"
 								},
 								{
@@ -150,7 +150,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/HP/Downloads/400574013_1341089246775810_1889531124970595139_n.jpg"
+									"src": "/C:/Users/HP/Downloads/plant.jpg"
 								}
 							]
 						},
@@ -183,12 +183,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "admin",
+									"value": "adminzz",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "admin@gmail.com",
+									"value": "adminz@gmail.com",
 									"type": "text"
 								},
 								{
@@ -207,7 +207,7 @@
 								}
 							]
 						},
-						"url": "{{URI}}{{V1}}user/edit/652d433a858a476eaa91e21d"
+						"url": "{{URI}}{{V1}}user/edit/65618897587fdb3729f018fb"
 					},
 					"response": []
 				},
@@ -231,7 +231,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{URI}}{{V1}}user/652d433a858a476eaa91e21d"
+						"url": "{{URI}}{{V1}}user/65618897587fdb3729f018fb"
 					},
 					"response": []
 				},
