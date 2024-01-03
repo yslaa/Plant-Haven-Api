@@ -325,8 +325,8 @@ exports.updateUserData = async (req, res, id) => {
     throw new ErrorHandler(`Invalid user ID: ${id}`);
 
   const existingUser = await User.findById(id).lean().exec();
-
   if (!existingUser) throw new ErrorHandler(`User not found with ID: ${id}`);
+
 
   const duplicateUser = await User.findOne({
     name: req.body.name,
